@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Motion Design</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="step-1">
+    <div class="canvas-container">
+        <canvas id="hero-lightpass"></canvas>
+    </div>
+    <section class="scroll-height"></section>
+
+    <div id="next-page" class="next-section">
+        <div class="sticky-wrapper">
+            <div class="moving-content">
+                <h2 class="main-title">Design Your Future</h2>
+                <p class="sub-title">상상을 현실로 만드는 모션그래픽의 세계</p>
+            </div>
+
+            <div id="content-reveal" class="curriculum-container">
+                <div class="left-image-box"></div>
+                <div class="right-text-box">
+                    <div class="motive-paragraph">
+                        <span class="motive-line">정지된 픽셀에 생명력을 불어넣는 마법, </span>
+                        <span class="motive-line">에프터 이펙트는 단순한 툴을 넘어 당신의 상상력을 투영하는 캔버스가 됩니다. </span>
+                        <span class="motive-line">빛과 그림자, 그리고 시간의 흐름을 직접 설계하며 </span>
+                        <span class="motive-line">세상에 없던 압도적인 시각적 미장센을 구축해보세요. </span>
+                        <span class="motive-line">기술적인 제약을 넘어, 이제 당신만의 크리에이티브한 영상 언어로 </span>
+                        <span class="motive-line">관객의 시선을 사로잡는 위대한 여정을 시작해보세요!</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="next-arrow" class="next-arrow-btn">
+                <span>Next Step</span>
+                <div class="arrow-icon">→</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-3" class="page-3-section">
+        <div class="p3-sticky-wrapper">
+            <div class="p3-moving-content">
+                <h2 class="p3-main-title">Phase 01</h2>
+                <p class="p3-sub-title">The Foundation of Motion</p>
+            </div>
+
+            <div id="p3-content-reveal" class="p3-curriculum-container">
+                <div class="p3-left-image-box" data-video="images/photo1video.mp4"></div>
+                
+                <div class="p3-right-text-box">
+                    <div class="p3-phase-info">
+                        <span class="p3-duration p3-line">Duration: 1 Month (4 Weeks)</span>
+                        <h3 class="p3-main-quote p3-line">"멈춰있던 디자인에 생동감의 리듬을 더하다"</h3>
+                        
+                        <div class="p3-details">
+                            <div class="p3-detail-item p3-line">
+                                <strong>Seamless Workflow</strong>
+                                <p>Photoshop과 Illustrator에서 정성껏 만든 당신의 아트워크를 After Effects로 완벽하게 이식합니다.</p>
+                            </div>
+                            <div class="p3-detail-item p3-line">
+                                <strong>Mastering Keyframes</strong>
+                                <p>단순한 움직임을 넘어, 물리 법칙이 살아있는 텐션과 리듬감 있는 키프레임 애니메이션의 본질을 체득합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="video-modal" class="video-modal">
+        <div class="modal-overlay js-modal-close"></div>
+        <div class="modal-content">
+            <video id="modal-video" controls>
+                <source src="" type="video/mp4">
+            </video>
+            <button class="modal-close js-modal-close">×</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
