@@ -1,0 +1,94 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+body { margin: 0; padding: 0; background-color: #000; overflow-x: hidden; font-family: 'Pretendard', sans-serif; color: #fff; }
+
+/* 01. Canvas Section */
+.canvas-container { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 5; transition: opacity 0.5s; }
+body.step-2 .canvas-container { opacity: 0; pointer-events: none; }
+#hero-lightpass { width: 100%; height: 100%; object-fit: cover; }
+.scroll-height { height: 300vh; }
+
+/* 02. Next Page & Selection Menu */
+.next-section { display: none; position: relative; width: 100%; min-height: 400vh; background-color: #0a0a0a; z-index: 20; }
+.next-section.active { display: block; }
+.sticky-wrapper { position: sticky; top: 0; width: 100%; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; }
+
+.moving-content { text-align: center; z-index: 100; }
+.main-title { font-size: 3.5rem; font-weight: 800; margin: 0; }
+.sub-title { font-size: 1.3rem; color: #aaa; margin-top: 10px; }
+
+.selection-container {
+    position: absolute; width: 90%; max-width: 1300px;
+    display: flex; justify-content: center; align-items: center; gap: 25px; margin-top: 180px; opacity: 0; visibility: hidden; transform: translateY(50px);
+}
+
+.select-box {
+    flex: 1; height: 480px; background: #111; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px;
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); position: relative; overflow: hidden;
+}
+.select-box.active-card { cursor: pointer; }
+.select-box.active-card:hover { transform: translateY(-15px); border-color: #9747ff; box-shadow: 0 25px 50px rgba(151, 71, 255, 0.25); }
+.box-image { width: 100%; height: 80%; background-size: cover; background-position: center; }
+.ae-img { background-image: url('images/aftereffect.png'); }
+.c4d-img { background-image: url('images/photo6.png'); }
+.box-label { height: 20%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; width: 100%; background: #111; }
+
+/* 03. Phase Sections Layout */
+.page-3-section, .page-4-section, .c4d-only-section { display: none; position: relative; width: 100%; background-color: #050505; z-index: 50; }
+.page-3-section { min-height: 800vh; }
+.page-4-section { min-height: 600vh; }
+.c4d-only-section { min-height: 600vh; }
+
+.page-3-section.show, .page-4-section.show, .c4d-only-section.show { display: block; }
+
+.p3-sticky-wrapper, .p4-sticky-wrapper, .c4d-sticky-wrapper { position: sticky; top: 0; width: 100%; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; }
+
+.p3-curriculum-container, .p4-curriculum-container, .c4d-curriculum-container { position: absolute; width: 85%; max-width: 1300px; height: 600px; opacity: 0; visibility: hidden; }
+
+.p3-slide-track, .p4-slide-track, .c4d-slide-track { position: relative; width: 100%; height: 100%; }
+
+.p3-slide, .p4-slide, .c4d-slide { 
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: space-between; align-items: center; gap: 80px; 
+    transition: transform 0.8s cubic-bezier(0.7, 0, 0.3, 1), opacity 0.5s; 
+}
+
+/* Slide Transition States */
+.p3-slide-2, .p3-slide-3, .p4-slide-2, .c4d-slide-2 { transform: translateX(100%); opacity: 0; pointer-events: none; }
+.p3-slide-track.step-2 .p3-slide-1 { transform: translateX(-100%); opacity: 0; }
+.p3-slide-track.step-2 .p3-slide-2 { transform: translateX(0); opacity: 1; pointer-events: all; }
+.p3-slide-track.step-3 .p3-slide-2 { transform: translateX(-100%); opacity: 0; }
+.p3-slide-track.step-3 .p3-slide-3 { transform: translateX(0); opacity: 1; pointer-events: all; }
+.p4-slide-track.step-2 .p4-slide-1 { transform: translateX(-100%); opacity: 0; }
+.p4-slide-track.step-2 .p4-slide-2 { transform: translateX(0); opacity: 1; pointer-events: all; }
+.c4d-slide-track.step-2 .c4d-slide-1 { transform: translateX(-100%); opacity: 0; }
+.c4d-slide-track.step-2 .c4d-slide-2 { transform: translateX(0); opacity: 1; pointer-events: all; }
+
+/* Image Boxes */
+.p3-left-image-box, .p4-left-image-box, .c4d-left-image-box { flex: 1; height: 500px; border-radius: 20px; background-size: cover; background-position: center; cursor: pointer; box-shadow: 0 0 30px rgba(151, 71, 255, 0.2); overflow: hidden; }
+#c4d-auto-video { width: 100%; height: 100%; object-fit: cover; }
+
+.p3-right-text-box, .p4-right-text-box, .c4d-right-text-box { flex: 1.2; text-align: left; }
+.p3-line, .p4-line, .c4d-line { opacity: 0.1; }
+.p3-duration, .p4-duration, .c4d-duration { color: #9747ff; font-weight: 700; margin-bottom: 10px; display: block; }
+.p3-main-quote, .p4-main-quote, .c4d-main-quote { font-size: 2.2rem; font-weight: 800; line-height: 1.4; margin-bottom: 25px; }
+.p3-detail-item, .p4-detail-item, .c4d-detail-item { border-left: 2px solid #9747ff; padding-left: 20px; margin-top: 20px; }
+
+.p3-next-btn, .p4-next-btn, .c4d-next-btn { position: absolute; right: 0; bottom: 0; display: flex; align-items: center; gap: 15px; cursor: pointer; z-index: 100; opacity: 0; visibility: hidden; transition: 0.5s; }
+.p3-next-btn.visible, .p4-next-btn.visible, .c4d-next-btn.visible { opacity: 1; visibility: visible; }
+.p3-arrow-circle, .p4-arrow-circle, .c4d-arrow-circle { width: 55px; height: 55px; border: 1px solid #9747ff; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #9747ff; }
+
+.c4d-text { font-size: 6rem; font-weight: 900; background: linear-gradient(to bottom, #fff, #444); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.c4d-sub-text { font-size: 1.5rem; color: #9747ff; }
+
+/* Video Modal */
+.video-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 5000; justify-content: center; align-items: center; }
+.video-modal.active { display: flex; }
+.modal-overlay { position: absolute; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(10px); }
+.modal-content-wrapper { position: relative; width: 90%; max-width: 1200px; z-index: 10; }
+.video-container { display: none; }
+.video-container.active { display: block; }
+.multi-layout.active { display: flex; gap: 15px; }
+.video-column { flex: 1; aspect-ratio: 9/16; background: #000; border-radius: 10px; overflow: hidden; }
+.video-column video, #modal-video { width: 100%; height: 100%; object-fit: cover; }
+.modal-close { position: absolute; top: -50px; right: 0; background: none; border: none; color: #fff; font-size: 40px; cursor: pointer; }
